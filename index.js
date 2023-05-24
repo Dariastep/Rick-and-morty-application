@@ -1,3 +1,5 @@
+import { createCharacterCard } from "./components/card/card.js";
+
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
@@ -11,3 +13,11 @@ const pagination = document.querySelector('[data-js="pagination"]');
 const maxPage = 1;
 const page = 1;
 const searchQuery = "";
+
+createCharacterCard();
+
+async function fetchCharacters() {
+  const response = await fetch("https://rickandmortyapi.com/api/character");
+  const dataCharacter = await response.json();
+  console.log(dataCharacter);
+}
