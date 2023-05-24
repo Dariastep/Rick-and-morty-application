@@ -1,5 +1,5 @@
 import { createCharacterCard } from "./components/card/card.js";
-//import { createButton } from "./components/nav-button/nav-button.js";
+import { createButton } from "./components/nav-button/nav-button.js";
 import { createSearchBar } from "./components/search-bar/search-bar.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
@@ -21,7 +21,7 @@ let searchQuery = "";
 
 //rendering
 createSearchBar();
-//createButton();
+createButton();
 
 async function fetchCharacters() {
   try {
