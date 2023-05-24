@@ -19,7 +19,7 @@ let searchQuery = "";
 async function fetchCharacters() {
   try {
     const response = await fetch(
-      `https://rickandmortyapi.com/api/character?page=${page}`
+      `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}`
     );
     if (response.ok) {
       const characters = await response.json();
@@ -63,8 +63,9 @@ prevButton.addEventListener("click", () => {
 // searchBar   später noch INPUT !!!!
 searchBar.addEventListener("submit", (event) => {
   event.preventDefault();
-
+  page = 1; // unschön ab funzt
   const searchData = new FormData(event.target);
   const data = Object.fromEntries(searchData);
   searchQuery = data.query;
+  fetchCharacters();
 });
