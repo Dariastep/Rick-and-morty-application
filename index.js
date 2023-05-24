@@ -32,6 +32,7 @@ async function fetchCharacters() {
       charactersResults.forEach((characterData) => {
         const characterCard = createCharacterCard(characterData);
         cardContainer.append(characterCard);
+        return characterData;
       });
       return maxPage;
     } else {
