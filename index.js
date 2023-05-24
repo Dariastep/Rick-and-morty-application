@@ -14,7 +14,7 @@ const pagination = document.querySelector('[data-js="pagination"]');
 // States
 /* const maxPage = 1; */
 export let page = 1;
-const searchQuery = "";
+let searchQuery = "";
 
 async function fetchCharacters() {
   try {
@@ -33,6 +33,7 @@ async function fetchCharacters() {
         const characterCard = createCharacterCard(characterData);
         cardContainer.append(characterCard);
       });
+      return maxPage;
     } else {
       console.log("Bad response");
     }
@@ -57,4 +58,13 @@ prevButton.addEventListener("click", () => {
     page--;
     fetchCharacters();
   }
+});
+
+// searchBar   später noch INPUT !!!!
+searchBar.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const searchData = new FormData(event.target);
+  const data = Object.fromEntries(searchData);
+  searchQuery = data.query;
 });
