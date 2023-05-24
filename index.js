@@ -13,7 +13,7 @@ const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
 /* const maxPage = 1; */
-const page = 1;
+let page = 1;
 const searchQuery = "";
 
 async function fetchCharacters() {
@@ -27,6 +27,7 @@ async function fetchCharacters() {
       const charactersResults = await characters.results;
       const maxPage = characters.info.pages;
       pagination.textContent = `${page} / ${maxPage}`;
+
       console.log(characters);
       charactersResults.forEach((characterData) => {
         const characterCard = createCharacterCard(characterData);
