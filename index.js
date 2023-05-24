@@ -24,7 +24,7 @@ async function fetchCharacters() {
       cardContainer.innerHTML = "";
       const charactersResults = await characters.results;
       charactersResults.forEach((characterData) => {
-        const characterCard = createCharacterCard();
+        const characterCard = createCharacterCard(characterData);
         cardContainer.append(characterCard);
       });
     } else {
